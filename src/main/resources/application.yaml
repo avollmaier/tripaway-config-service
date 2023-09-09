@@ -24,6 +24,7 @@ spring:
           uri: https://github.com/avollmaier/tripaway-deployment/
           search-paths: 'config/'
           order: 1
+          default-label: main
 
 logging:
   pattern:
