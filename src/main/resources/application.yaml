@@ -22,7 +22,7 @@ spring:
           order: 2
         git:
           uri: https://github.com/avollmaier/tripaway-deployment/
-          search-paths: 'config/'
+          search-paths: '/config/{application}/{profile}'
           order: 1
           default-label: main
 
