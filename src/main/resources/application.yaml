@@ -13,6 +13,17 @@ spring:
     name: config-service
   lifecycle:
     timeout-per-shutdown-phase: 15s
+  cloud:
+    config:
+      server:
+        native:
+          search-locations:
+            - classpath:/config
+          order: 2
+        git:
+          uri: https://github.com/avollmaier/tripaway-deployment/
+          search-paths: 'config/'
+          order: 1
 
 logging:
   pattern:
@@ -43,3 +54,12 @@ management:
   observations:
     key-values:
       application: ${spring.application.name}
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: ${DISCOVERY_SERVICE_URL:http://localhost:8085/eureka/}
+  instance:
+    lease-expiration-duration-in-seconds: ${DISCOVERY_LEASE_EXPIRATION:3}
+    lease-renewal-interval-in-seconds: ${DISCOVERY_LEASE_RENEWAL:1}
+    instance-id: ${spring.cloud.client.hostname}:${spring.application.name}:${random.value}
