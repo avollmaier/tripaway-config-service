@@ -8,7 +8,7 @@ env:
   IMAGE_NAME: ${{ github.repository }}
   VERSION: ${{ github.sha }}
   CI: CI
-  NATIVE_IMAGE_ENABLED: enabled
+  #NATIVE_IMAGE_ENABLED: enabled    https://github.com/oracle/graal/issues/5134
 
 permissions:
   packages: write
